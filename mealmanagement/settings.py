@@ -138,8 +138,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #Authentication
 #AUTH_USER_MODEL=env('AUTH_USER_MODEL')
 #LOGIN_URL = 'user:login'
-LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+#LOGIN_REDIRECT_URL = '/'
+#LOGOUT_REDIRECT_URL = '/'
 
 # django debug 
 #DEBUG_TOOLBAR_PATCH_SETTINGS = False
