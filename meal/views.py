@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse,HttpResponseRedirect
 from .utility import render_to_pdf 
 
-#@login_required
+@login_required
 def home_view(request):
     # base query all model all data
     User = get_user_model()
