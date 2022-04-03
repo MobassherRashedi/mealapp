@@ -1,1 +1,1 @@
-web : gunicorn mealmanagement.wsgi
+web: gunicorn mealmanagement.wsgi
