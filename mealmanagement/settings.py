@@ -138,7 +138,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #Authentication
 #AUTH_USER_MODEL=env('AUTH_USER_MODEL')
 #LOGIN_URL = 'user:login'
-#LOGIN_REDIRECT_URL = '/'
+from django.urls import reverse_lazy
+LOGIN_REDIRECT_URL = reverse_lazy('home')
 #LOGOUT_REDIRECT_URL = '/'
 
 # django debug 
