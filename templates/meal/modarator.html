@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="row mt-5 d-flex justify-content-center">
+    <div class="col-8">
+      <h1 class="display-5 text-center mb-5">Request For Approve Add Balance</h1>
+      {% if add_balance_not_approved %}
+        {% for each in add_balance_not_approved %}
+          <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between ">
+              <div>
+                {{each.amount}}
+                Tk - by
+                {{each.user.username}}
+                on
+                {{each.date}}
+              </div>
+              <div>
+                <button type="submit" class="btn btn-danger" onclick="location.href='{% url 'meal:add_balance_approve' each.id %}'" value="Approve">Approve
+                </div>
+              </li>
+            </ul>
+          {% endfor %}
+        {% else %}
+          <h1 class="display-4 text-center ">No request yet.</h1>
+          <div class="text-center">
+            <button type="submit" class="btn btn-danger col-4" onclick="location.href='{% url 'meal:add_balance' %}'">
+              Add Money Request</button>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="row mt-5 d-flex justify-content-center">
+      <div class="col-8">
+        <h1 class="display-5 text-center mb-5">Request For Approve Expenses
+        </h1>
+        {% if add_expense_not_approved %}
+          {% for each in add_expense_not_approved %}
+            <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between ">
+                <div>
+                  {{each.amount}}
+                  Tk - by
+                  {{each.user.username}}
+                  on
+                  {{each.date}}
+                </div>
+                <div>
+                  <button type="submit" class="btn btn-danger" onclick="location.href='{% url 'meal:add_expense_approve' each.id %}'" value="Approve">Approve
+                  </div>
+                </li>
+              </ul>
+            {% endfor %}
+          {% else %}
+            <h1 class="display-4 text-center ">No request yet.</h1>
+            <div class="text-center">
+              <button type="submit" class="btn btn-danger col-4" onclick="location.href='{% url 'meal:add_expense_product' %}'">
+                Add expense Request</button>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endblock content %}

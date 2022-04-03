@@ -1,0 +1,84 @@
+<!DOCTYPE>
+<html>
+
+  <head>
+    <title>Title</title>
+    <style type="text/css">
+      body {
+        font-weight: 200;
+        font-size: 14px;
+      }
+
+      .header {
+        font-size: 20px;
+        font-weight: 100;
+        text-align: center;
+        color: #007cae;
+      }
+
+      .title {
+        font-size: 22px;
+        font-weight: 100;
+        /* text-align: right;*/
+        padding: 10px 20px 0;
+      }
+
+      .title span {
+        color: #007cae;
+      }
+
+      .details {
+        padding: 10px 20px 0;
+        text-align: left !important;
+        /*margin-left: 40%;*/
+      }
+
+      .hrItem {
+        border: none;
+        height: 1px;
+        /* Set the hr color */
+        color: #333;
+        /* old IE */
+        background-color: #fff;
+        /* Modern Browsers */
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class='wrapper'>
+      <div class='header'>
+        <p class='title'>Meal report for
+          {{month_name}}-{{year}}
+        </p>
+      </div>
+      <div>
+        <div class='details'>
+          Report For:
+          {{user_name}}<br/>
+          Date:
+          {{report_generated_date}}<br/>
+          Time:
+          {{report_generated_time}}<br/>
+          Last Day Of
+          {{month_name}}
+          :
+          {{last_day}}
+          <hr class='hrItem'/>
+        </div>
+        <div class="details">
+          user_added_balance :
+          {{user_added_balance}}<br/>
+          user_expenses :
+          {{user_expenses}}<br/>
+          user_meal :
+          {{user_meal}}<br/>
+          meal_rate :
+          {{meal_rate}}<br/>
+          user_actual_balance :
+          {{user_actual_balance}}<br/>
+        </div>
+      </div>
+    </body>
+
+  </html>

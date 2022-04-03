@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="row mt-5 d-flex justify-content-center">
+    {% for product in products %}
+      <div class="col">
+        <div class="card text-white bg-success  text-center mb-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{product.date}}</h5>
+            <h1 class="display-3">{{product.amount}}</h1>
+            <h5 class="card-title">{{product.name}}</h5>
+            <div class="card-footer">
+              <a href="#" class="card-link text-center text-white">edit</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div>
+    <a class="btn btn-lg btn-danger" href="{% url 'meal:add_expense_product'%}" style="position:fixed;bottom:20px;right:45px;margin:0;padding:5px 3px;">Add Expense</a>
+  </div>
+
+{% endblock content %}

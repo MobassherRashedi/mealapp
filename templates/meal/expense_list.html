@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="row mt-5 d-flex justify-content-center">
+    {% for expense in expenses_list %}
+      <div class="col">
+        <div class="card text-white bg-success  text-center mb-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{expense.date}}</h5>
+            <h1 class="display-3">{{expense.amount}}</h1>
+            <div class="card-footer">
+              {% if expense.approved is True %}
+                <span class="text-center text-white">Approved</span>
+              {% else %}
+                <span class="text-center text-white">Not Approved</span>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div>
+    <a class="btn btn-lg btn-danger" href="{% url 'meal:add_expense_product'%}" style="position:fixed;bottom:20px;right:45px;margin:0;padding:5px 3px;">Add Bazar</a>
+  </div>
+
+{% endblock content %}

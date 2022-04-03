@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class='container mt-5 mb-5'>
+
+    <div class="row mt-3 d-flex justify-content-center">
+      <div class="col">
+        <div class="card text-white bg-success  text-center mb-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">TOTAL ADDED</h5>
+            {% if user_added_balance %}
+              <h1 class="display-3">{{user_added_balance}}</h1>
+            {% else %}
+              <h1 class="display-3">0</h1>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-white bg-success  text-center mb-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">EXPENSE</h5>
+            {% if user_expenses %}
+              <h1 class="display-3">{{user_expenses}}</h1>
+            {% else %}
+              <h1 class="display-3">0</h1>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-white bg-success  text-center mb-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">BALANCE</h5>
+            {% if user_balance %}
+              <h1 class="display-3">{{user_balance}}</h1>
+            {% else %}
+              <h1 class="display-3">0</h1>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-5 mb-5 d-flex justify-content-center">
+      <div class="col">
+        <table class="table table-info table-striped table-bordered text-center">
+          <thead>
+            <tr>
+              <th scope="col" colspan="12">Meal table for
+                {{current_month_name}}
+                -
+                {{current_year}}
+              </th>
+            </tr>
+            <tr>
+              <th scope="col">Date</th>
+              {% for user in all_user %}
+                <th scope="col">{{user.username}}</th>
+              {% endfor %}
+            </tr>
+          </thead>
+          <tbody>
+            {% for key, values in data.items %}
+              <tr>
+                <th scope="row">{{key}}</th>
+                {% for val in values %}
+                  <td>{{val}}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+    <div class="row mt-3 d-flex justify-content-center ">
+      <div class="col">
+        <div class="card text-white bg-success  text-center mb-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">MEAL</h5>
+            {% if user_total_meal %}
+              <h1 class="display-3">{{user_total_meal}}</h1>
+            {% else %}
+              <h1 class="display-3">0</h1>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-white bg-success  text-center mb-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">TOTAL MEAL</h5>
+            {% if total_meal %}
+              <h1 class="display-3">{{total_meal}}</h1>
+            {% else %}
+              <h1 class="display-3">0</h1>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-white bg-success  text-center mb-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">MEAL RATE</h5>
+            {% if meal_rate %}
+              <h1 class="display-3">{{meal_rate}}</h1>
+            {% else %}
+              <h5>something missing contact admin.</h5>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3 d-flex justify-content-center">
+      <div class="col">
+        <div class="card text-white bg-success  text-center mb-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">TOTAL RECEIVED</h5>
+            {% if total_received %}
+              <h1 class="display-3">{{total_received}}</h1>
+            {% else %}
+              <h1 class="display-3">0</h1>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-white bg-success  text-center mb-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">TOTAL EXPENSE</h5>
+            {% if total_expenses %}
+              <h1 class="display-3">{{total_expenses}}</h1>
+            {% else %}
+              <h1 class="display-3">0</h1>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card text-white bg-success  text-center mb-3" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">TOTAL BALANCE</h5>
+            {% if total_balance %}
+              <h1 class="display-3">{{total_balance}}</h1>
+            {% else %}
+              <h5>something missing contact admin.</h5>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-grid gap-2">
+      <button class="btn btn-lg btn-primary" type="button" onclick="location.href='{% url "meal:generate_pdf_report"%}'">Generate Report</button>
+    </div>
+
+  </div>
+  <div class="mb-5"></div>
+</div>
+<div class="mb-5"></div>
+{% endblock content %}

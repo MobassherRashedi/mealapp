@@ -1,0 +1,39 @@
+<!-- templates/navbar.html -->
+<nav class="navbar navbar-expand-md sticky-top navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'meal:home' %}">Meal App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse flex-row-reverse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav">
+        {% if user.is_authenticated %}
+          {% if user.is_staff %}
+            <li class="nav-item">
+              <a class="nav-link active" href="{% url 'meal:modarator_view' %}">View request</a>
+            </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'meal:create' %}">Add a meal</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'meal:add_expense_product' %}">Add a expense</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'meal:add_balance' %}">Add balance request</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Hi
+              {{user.username}}</a>
+          </li>
+        {% else %}
+
+          <li class="nav-item">
+            <a href="{% url 'login' %}" class="btn btn-sm btn-danger">Sign In</a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
